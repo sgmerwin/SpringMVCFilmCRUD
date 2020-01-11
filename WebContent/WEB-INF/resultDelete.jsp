@@ -11,9 +11,6 @@
 
 <c:choose>
 <c:when test = "${empty films}">
-<p>
-no film
-</p>
 </c:when>
 <c:otherwise>
 
@@ -36,6 +33,9 @@ no film
 <c:choose>
 <c:when test = "${films.filmID le 1000}">
 The ID is less than 1000. The film will not be deleted.
+</c:when>
+<c:when test = "${empty films}">
+The film is empty.
 </c:when>
 <c:otherwise>
 The film will be deleted.

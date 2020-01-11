@@ -57,7 +57,7 @@ public class FilmController {
 		film = dao.findFilmById(id);
 		mv.addObject("films", film);
 		mv.setViewName("WEB-INF/resultDelete.jsp");
-		if(id > 1000) {
+		if(id > 1000 && film != null) {
 			dao.deleteFilm(id);
 		}
 		return mv;
