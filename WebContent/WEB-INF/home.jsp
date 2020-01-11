@@ -8,6 +8,13 @@
 <title>Film</title>
 </head>
 <body>
+<p>
+<a href="filmID.jsp">Select Film Using Film ID</a>
+</p>
+<p>
+<a href="addFilm.jsp">Add Film By Entering All Properties</a>
+</p>
 
 </body>
 </html>
+
