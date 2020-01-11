@@ -180,6 +180,7 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 			st.setInt(4, film.getLangFilm());
 			st.setInt(5, film.getLengthFilm());
 			st.setString(6, film.getRatingFilm());
+			
 			System.out.println("*********" + st); // test line
 
 			int count = st.executeUpdate();
@@ -190,6 +191,7 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 				while (keys.next()) {
 					int newFilmId = keys.getInt(1);
 					film.setFilmID(newFilmId);
+					
 //					if (film != null) {
 //				          sql = "INSERT INTO film (film_id) VALUES (?)";
 //				          st = conn.prepareStatement(sql);

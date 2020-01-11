@@ -22,7 +22,7 @@ no film
 <li>Title: ${films.filmTitle}</li>
 <li>Desc: ${films.filmDesc}</li>
 <li>Release Year: ${films.releaseFilm}</li>
-<li>Language: ${films.language}</li>
+<li>Language: ${films.langFilm}</li>
 <li>Rating: ${films.ratingFilm}</li>
 </ul>
 <ul>
