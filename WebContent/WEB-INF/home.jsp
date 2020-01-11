@@ -14,7 +14,6 @@
 <p>
 <a href="addFilm.jsp">Add Film By Entering All Properties</a>
 </p>
-
 </body>
 </html>
 
