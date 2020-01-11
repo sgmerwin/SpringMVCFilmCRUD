@@ -43,6 +43,17 @@ public class FilmController {
 		
 		
 	}
+	@RequestMapping(path = "searchFilm.do" , method = RequestMethod.GET)
+	public ModelAndView searchFilm(String key) {
+		ModelAndView mv = new ModelAndView();
+		List<Film> film = new ArrayList<>();
+		film = dao.findFilmByKeyword(key);
+		mv.addObject("films", film);
+		mv.setViewName("WEB-INF/resultSearch.jsp");
+		return mv;
+		
+		
+	}
 	
 	
 }
