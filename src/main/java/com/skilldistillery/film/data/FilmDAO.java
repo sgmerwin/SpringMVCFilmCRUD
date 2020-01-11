@@ -19,6 +19,8 @@ public interface FilmDAO {
 	public Actor findActorById(int actorId);
 	
 	public Film createFilm(Film film);
+	
+	public List<Film> findFilmByKeyword(String keyword);
 
 	
 }

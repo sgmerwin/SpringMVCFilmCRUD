@@ -11,8 +11,10 @@
 	<form action="addFilm.do" method="POST">
 		Film Title: <input type="text" name="filmTitle" /><br>
 		Film Desc: <input type="text" name="filmDesc" /><br>
-		Film Desc: <input type="text" name="film" /><br> 
-		<input type="submit" value="Search" />
+		Release Year: <input type="number" name="releaseFilm" /><br> 
+		Language: <input type="number" name="langFilm" /><br>
+		Rating: <input type="text" name="ratingFilm" /><br>
+		<input type="submit" value="Submit" />
 	</form>
 </body>
 </html>
