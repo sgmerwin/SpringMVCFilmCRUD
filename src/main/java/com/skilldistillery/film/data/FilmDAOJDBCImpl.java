@@ -175,7 +175,6 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 //			System.out.println("hello im the film title" + film.getFilmTitle());
 //			System.out.println("hello in film id" + film.getLangFilm());
 			st.setString(1, film.getFilmTitle());
-//			st.setInt(2, film.getLangFilm());
 			st.setString(2, film.getFilmDesc());
 			st.setInt(3, film.getReleaseFilm());
 			st.setInt(4, film.getLangFilm());
@@ -200,7 +199,9 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 ////				          }
 //				        }
 				}
-
+				conn.commit();
+				st.close();
+				conn.close();
 			}
 
 		} catch (Exception e) {
