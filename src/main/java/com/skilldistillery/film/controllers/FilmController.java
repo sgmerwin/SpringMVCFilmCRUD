@@ -31,9 +31,7 @@ public class FilmController {
 		film = dao.findFilmById(FilmID);
 		mv.addObject("films", film);
 		mv.setViewName("WEB-INF/results.jsp");
-		return mv;
-		
-		
+		return mv;	
 	}
 	
 }
