@@ -260,9 +260,9 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 			}
 	}//method
 	
-	public void updateFilm(String title, int id) throws SQLException{
+	public void updateFilm(String title, int id) {
 		try {
-		  Connection conn = DriverManager.getConnection(this.URL, this.user,this.pass);
+		  Connection conn = DriverManager.getConnection(URL, user, pass);
 		  conn.setAutoCommit(false);
 		  String sql = "UPDATE film SET title = ? WHERE id = ?";
 		  PreparedStatement st = conn.prepareStatement(sql); 

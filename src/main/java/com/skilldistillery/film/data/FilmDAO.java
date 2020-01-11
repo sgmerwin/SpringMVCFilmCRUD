@@ -24,6 +24,8 @@ public interface FilmDAO {
 	public List<Film> findFilmByKeyword(String keyword);
 	
 	public void deleteFilm(int id);
+	
+	public void updateFilm(String title, int id);
 
 	
 }
