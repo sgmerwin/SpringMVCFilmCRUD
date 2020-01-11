@@ -55,8 +55,8 @@ public class FilmDAOJDBCImpl implements FilmDAO{
 				film.setSpecialFeatures(filmResult.getString("special_features"));
 				film.setActor(findActorsByFilmId(film.getFilmID()));
 				film.setLanguage(languageOfFilm(filmID));
-				
 			}
+			 
 			filmResult.close();
 			stmt.close();
 

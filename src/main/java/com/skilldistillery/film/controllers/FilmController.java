@@ -28,12 +28,9 @@ public class FilmController {
 	public ModelAndView getFilm(@RequestParam("filmID")int FilmID){
 		ModelAndView mv = new ModelAndView();
 		Film film = new Film();
-		
 		film = dao.findFilmById(FilmID);
-		
 		mv.addObject("films", film);
 		mv.setViewName("WEB-INF/results.jsp");
-		
 		return mv;
 		
 		

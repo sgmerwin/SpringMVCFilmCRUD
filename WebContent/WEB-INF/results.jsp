@@ -8,6 +8,22 @@
 <title>Film ID Test</title>
 </head>
 <body>
-<p>Testing: ${films}</p>
+
+<c:choose>
+<c:when test = "${empty films}">
+<p>
+no film
+</p>
+</c:when>
+<c:otherwise>
+<p>
+${films}
+</p>
+</c:otherwise>
+</c:choose>
+
+
+
+
 </body>
 </html>
