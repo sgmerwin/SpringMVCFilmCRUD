@@ -11,9 +11,24 @@
 	<form action="addFilm.do" method="POST">
 		Film Title: <input type="text" name="filmTitle" /><br>
 		Film Desc: <input type="text" name="filmDesc" /><br>
-		Language: <input type="number" name="langFilm" /><br>
+		Language: <select name="langFilm">
+		<option value="1">English</option>
+		<option value="2">Italian</option>
+		<option value="3">Japanese</option>
+		<option value="4">Mandarin</option>
+		<option value="5">French</option>
+		<option value="6">German</option>
+		</select>
+		
 		Release Year: <input type="number" name="releaseFilm" /><br>
-		Rating: <input type="text" name="ratingFilm" /><br>
+		Rating: <select name="ratingFilm">
+		<option>G</option>
+		<option>PG</option>
+		<option>PG-13</option>
+		<option>R</option>
+		<option>NC-17</option>
+		</select>
+		
 		<input type="submit" value="Submit" />
 	</form>
 </body>
