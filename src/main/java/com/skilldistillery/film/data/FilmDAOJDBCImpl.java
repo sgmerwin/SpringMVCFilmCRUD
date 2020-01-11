@@ -13,12 +13,21 @@ import com.skilldistillery.film.entities.Film;
 
 @Component
 public class FilmDAOJDBCImpl implements FilmDAO{
+	static {
+		try {
+			Class.forName("com.mysql.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false";
 	private String user = "student";
 	private String pass = "student";
 
 	@Override
-	public Film findFilmById(int filmId) {
+	public Film findFilmById(int filmID) {
 		// needs to return film OBJECT or null if no data.
 		Film film = null;
 		try {
@@ -26,7 +35,7 @@ public class FilmDAOJDBCImpl implements FilmDAO{
 			Connection conn = DriverManager.getConnection(URL, user, pass);
 			String sql = "SELECT * FROM film WHERE id = ?";
 			PreparedStatement stmt = conn.prepareStatement(sql);
-			stmt.setInt(1, filmId);
+			stmt.setInt(1, filmID);
 			ResultSet filmResult = stmt.executeQuery();
 			if (filmResult.next()) {
 				film = new Film();
@@ -60,7 +69,6 @@ public class FilmDAOJDBCImpl implements FilmDAO{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
 	
 
 }

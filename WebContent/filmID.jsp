@@ -9,7 +9,7 @@
 <body>
 <h2>Perform a GET request to <em>filmID</em>.</h2>
 	<form action="getFilm.do" method="GET">
-		<input type="text" name="symbol" /> 
+		<input type="number" name="filmID" /> 
 		<input type="submit" value="Search" />
 	</form>
 
