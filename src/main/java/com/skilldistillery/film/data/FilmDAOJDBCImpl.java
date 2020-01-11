@@ -164,24 +164,23 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 
 	public Film createFilm(Film film) {
 
-//		String sql = "INSERT INTO film (title, language_id, rental_duration, retnal_rate, replacement_cost) "
-//				+ "VALUES (?, ?, ?, ?, ?)";
 		Connection conn = null;
 
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
-			String sql = "INSERT INTO film (title, language_id, rental_duration, rental_rate, replacement_cost) "
-					+ "VALUES (?, ?, ?, ?, ?)";
+			String sql = "INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating) "
+									+ "VALUES (?, ?, ?, ?, 3, 4.99, ?, 19.99, ?)";
 			conn.setAutoCommit(false); // autocommit off
 			PreparedStatement st = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
 //			System.out.println("hello im the film title" + film.getFilmTitle());
 //			System.out.println("hello in film id" + film.getLangFilm());
 			st.setString(1, film.getFilmTitle());
-			st.setInt(2, film.getLangFilm());
-			st.setInt(3, film.getRentalDuration());
-			st.setDouble(4, film.getRentalRate());
-			st.setDouble(5, film.getReplaceCost());
-
+//			st.setInt(2, film.getLangFilm());
+			st.setString(2, film.getFilmDesc());
+			st.setInt(3, film.getReleaseFilm());
+			st.setInt(4, film.getLangFilm());
+			st.setInt(5, film.getLengthFilm());
+			st.setString(6, film.getRatingFilm());
 			System.out.println("*********" + st); // test line
 
 			int count = st.executeUpdate();
