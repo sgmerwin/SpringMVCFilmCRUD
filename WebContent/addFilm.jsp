@@ -21,7 +21,14 @@
 		</select>
 		
 		Release Year: <input type="number" name="releaseFilm" /><br>
-		Rating: <input type="text" name="ratingFilm" /><br>
+		Rating: <select name="ratingFilm">
+		<option>G</option>
+		<option>PG</option>
+		<option>PG-13</option>
+		<option>R</option>
+		<option>NC-17</option>
+		</select>
+		
 		<input type="submit" value="Submit" />
 	</form>
 </body>
