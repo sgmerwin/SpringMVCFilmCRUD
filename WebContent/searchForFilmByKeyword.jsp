@@ -4,12 +4,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Film ID</title>
+<title>Search For Film By Keyword</title>
 </head>
 <body>
-<h2>Perform a GET request to <em>filmID</em>.</h2>
-	<form action="getFilm.do" method="GET">
-		<input type="number" name="filmID" /> 
+<h2>Perform a GET request to <em>searchFilmByKeyword</em>.</h2>
+	<form action="searchFilm.do" method="GET">
+		<input type="text" name="symbol" /> 
 		<input type="submit" value="Search" />
 	</form>
 

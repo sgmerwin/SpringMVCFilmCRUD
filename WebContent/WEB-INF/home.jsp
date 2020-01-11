@@ -14,6 +14,9 @@
 <p>
 <a href="addFilm.jsp">Add Film By Entering All Properties</a>
 </p>
+<p>
+<a href="searchForFilmByKeyword.jsp">Search for Film by Keyword</a>
+</p>
 
 </body>
 </html>
