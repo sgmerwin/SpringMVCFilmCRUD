@@ -5,6 +5,7 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,9 +14,8 @@ import org.springframework.stereotype.Component;
 import com.skilldistillery.film.entities.Film;
 import com.skilldistillery.film.entities.Actor;
 
-
 @Component
-public class FilmDAOJDBCImpl implements FilmDAO{
+public class FilmDAOJDBCImpl implements FilmDAO {
 	static {
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
@@ -24,7 +24,7 @@ public class FilmDAOJDBCImpl implements FilmDAO{
 			e.printStackTrace();
 		}
 	}
-	
+
 	private static final String URL = "jdbc:mysql://localhost:3306/sdvid?useSSL=false";
 	private String user = "student";
 	private String pass = "student";
@@ -56,7 +56,7 @@ public class FilmDAOJDBCImpl implements FilmDAO{
 				film.setActor(findActorsByFilmId(film.getFilmID()));
 				film.setLanguage(languageOfFilm(filmID));
 			}
-			 
+
 			filmResult.close();
 			stmt.close();
 
@@ -73,7 +73,7 @@ public class FilmDAOJDBCImpl implements FilmDAO{
 		// TODO Auto-generated method stub
 		return null;
 	}
-	
+
 	public String languageOfFilm(int filmId) {
 		String language = null;
 		try {
@@ -92,14 +92,14 @@ public class FilmDAOJDBCImpl implements FilmDAO{
 			result.close();
 			stmt.close();
 			conn.close();
-			
+
 		} catch (SQLException e) {
 
 			e.printStackTrace();
 		}
 		return language;
 	}
-	
+
 	@Override
 	public Actor findActorById(int actorId) {
 		// needs to return actor OBJECT or null if no data.
@@ -161,6 +161,56 @@ public class FilmDAOJDBCImpl implements FilmDAO{
 		}
 		return films;
 	}
-	
+
+	public Film createFilm(Film film) {
+
+//		String sql = "INSERT INTO film (title, language_id, rental_duration, retnal_rate, replacement_cost) "
+//				+ "VALUES (?, ?, ?, ?, ?)";
+		Connection conn = null;
+
+		try {
+			conn = DriverManager.getConnection(URL, user, pass);
+			String sql = "INSERT INTO film (title, language_id, rental_duration, rental_rate, replacement_cost) "
+					+ "VALUES (?, ?, ?, ?, ?)";
+			conn.setAutoCommit(false); // autocommit off
+			PreparedStatement st = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+//			System.out.println("hello im the film title" + film.getFilmTitle());
+//			System.out.println("hello in film id" + film.getLangFilm());
+			st.setString(1, film.getFilmTitle());
+			st.setInt(2, film.getLangFilm());
+			st.setInt(3, film.getRentalDuration());
+			st.setDouble(4, film.getRentalRate());
+			st.setDouble(5, film.getReplaceCost());
+
+			System.out.println("*********" + st); // test line
+
+			int count = st.executeUpdate();
+			System.out.println(count + " film records created.");
+
+			if (count == 1) {
+				ResultSet keys = st.getGeneratedKeys();
+				while (keys.next()) {
+					int newFilmId = keys.getInt(1);
+					film.setFilmID(newFilmId);
+//					if (film != null) {
+//				          sql = "INSERT INTO film (film_id) VALUES (?)";
+//				          st = conn.prepareStatement(sql);
+////				          for (Film film1 : ) {
+////				            st.setInt(1, film1.getFilmID());
+////				            count = st.executeUpdate();
+////				          }
+//				        }
+				}
+
+			}
+
+		} catch (Exception e) {
+			// TODO: handle exception
+			e.printStackTrace();
+		}
+
+		return film;
+
+	}
 
 }
