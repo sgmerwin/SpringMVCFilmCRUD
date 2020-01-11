@@ -23,9 +23,10 @@ public class FilmController {
 	public ModelAndView getFilm(){
 		ModelAndView mv = new ModelAndView();
 		//arraylist
-		//list = filmdao.get
-		//mv.addObject("films",list)
-		//mv.setViewName("WEB-INF/views/results.jsp)
+		String str = new String();
+		str = dao.getFilmByID();
+		mv.addObject("films",str);
+		mv.setViewName("WEB-INF/results.jsp");
 		
 		return mv;
 		
