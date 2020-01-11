@@ -212,5 +212,41 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 		return film;
 
 	}
+	public List<Film> findFilmByKeyword(String keyword) {
+		List<Film> keyFilm = new ArrayList<>();
+		try {
+			Connection conn = DriverManager.getConnection(URL, user, pass);
+			String sql = "Select * FROM film where title LIKE ? OR description like ?";
+			PreparedStatement stmt = conn.prepareStatement(sql);
+			stmt.setString(1, "%" + keyword + "%");
+			stmt.setString(2, "%" + keyword + "%");
+			ResultSet keyResult = stmt.executeQuery();
+			while (keyResult.next()) {
+				Film film = new Film();
+				
+				film = new Film(keyResult.getInt("id"), keyResult.getString("title"), keyResult.getString("description"),
+						keyResult.getInt("release_year"), keyResult.getInt("language_id"), keyResult.getString("rating"));
+				
+				film.setActor(findActorsByFilmId(film.getFilmID()));
+				film.setLanguage(languageOfFilm(film.getFilmID()));
+				keyFilm.add(film);
+				
+				
+				
+			}
+			
+			
+			keyResult.close();
+			stmt.close();
+			conn.close();
+				
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		return keyFilm;
+	}
 
 }
