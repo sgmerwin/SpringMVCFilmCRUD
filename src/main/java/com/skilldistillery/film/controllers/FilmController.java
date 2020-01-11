@@ -50,7 +50,7 @@ public class FilmController {
 		mv.setViewName("WEB-INF/resultSearch.jsp");
 		return mv;	
 	}
-	@RequestMapping(path = "deleteFilm.do" , method = RequestMethod.GET)
+	@RequestMapping(path = "deleteFilm.do" , method = RequestMethod.POST)
 	public ModelAndView deleteFilm(int id) {
 		ModelAndView mv = new ModelAndView();
 		Film film = new Film();

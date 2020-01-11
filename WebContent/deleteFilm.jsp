@@ -8,7 +8,7 @@
 </head>
 <body>
 <h2>Perform a DELETE request to <em>film database</em></h2>
-	<form action="deleteFilm.do" method="GET">
+	<form action="deleteFilm.do" method="POST">
 		ID: <input type="number" name="id" /><br>
 		<input type="submit" value="Submit" />
 	</form>

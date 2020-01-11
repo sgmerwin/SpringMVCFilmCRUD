@@ -250,6 +250,8 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 		  String sql = "DELETE FROM film WHERE id = ?";
 		  PreparedStatement st = conn.prepareStatement(sql); 
 		  st.setInt(1, id);
+		  int count = st.executeUpdate();
+		  System.err.println(count + " film record deleted");
 		  conn.commit();
 		  st.close();
 		  conn.close();
