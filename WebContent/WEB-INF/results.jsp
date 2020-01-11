@@ -16,9 +16,21 @@ no film
 </p>
 </c:when>
 <c:otherwise>
-<p>
-${films}
-</p>
+
+<ul>
+<li>ID: ${films.filmID}</li>
+<li>Title: ${films.filmTitle}</li>
+<li>Desc: ${films.filmDesc}</li>
+<li>Release Year: ${films.releaseFilm}</li>
+<li>Language: ${films.language}</li>
+<li>Rating: ${films.ratingFilm}</li>
+</ul>
+<ul>
+<c:forEach var = "actor" items="${films.actor}">
+<li>${actor.actorFirstName} , ${actor.actorLastName}</li>
+</c:forEach>
+</ul>
+
 </c:otherwise>
 </c:choose>
 
