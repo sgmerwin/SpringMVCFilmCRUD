@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Film ID</title>
+<title>Delete Film</title>
 </head>
 <body>
 
@@ -30,10 +30,14 @@ no film
 <li>${actor.actorFirstName} , ${actor.actorLastName}</li>
 </c:forEach>
 </ul>
-
 </c:otherwise>
 </c:choose>
-<br>
 
-</body>
-</html>
+<c:choose>
+<c:when test = "${films.filmID le 1000}">
+The ID is less than 1000. The film will not be deleted.
+</c:when>
+<c:otherwise>
+The film will be deleted.
+</c:otherwise>
+</c:choose>

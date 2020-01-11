@@ -19,6 +19,11 @@
 <a href="searchForFilmByKeyword.jsp">Search for Film by Keyword</a>
 </p>
 
+<p>
+<a href="deleteFilm.jsp">Delete Film Using Film ID Greater Than 1000</a>
+</p>
+
+
 </body>
 </html>
 

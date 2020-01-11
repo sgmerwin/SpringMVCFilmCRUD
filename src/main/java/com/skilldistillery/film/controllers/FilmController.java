@@ -39,9 +39,7 @@ public class FilmController {
 		film = dao.createFilm(film);
 		mv.addObject("films", film);
 		mv.setViewName("WEB-INF/results.jsp");
-		return mv;
-		
-		
+		return mv;	
 	}
 	@RequestMapping(path = "searchFilm.do" , method = RequestMethod.GET)
 	public ModelAndView searchFilm(String key) {
@@ -50,9 +48,19 @@ public class FilmController {
 		film = dao.findFilmByKeyword(key);
 		mv.addObject("films", film);
 		mv.setViewName("WEB-INF/resultSearch.jsp");
+		return mv;	
+	}
+	@RequestMapping(path = "deleteFilm.do" , method = RequestMethod.GET)
+	public ModelAndView deleteFilm(int id) {
+		ModelAndView mv = new ModelAndView();
+		Film film = new Film();
+		film = dao.findFilmById(id);
+		mv.addObject("films", film);
+		mv.setViewName("WEB-INF/resultDelete.jsp");
+		if(id > 1000) {
+			dao.deleteFilm(id);
+		}
 		return mv;
-		
-		
 	}
 	
 	

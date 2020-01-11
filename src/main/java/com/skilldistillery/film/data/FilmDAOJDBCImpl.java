@@ -230,23 +230,30 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 				film.setActor(findActorsByFilmId(film.getFilmID()));
 				film.setLanguage(languageOfFilm(film.getFilmID()));
 				keyFilm.add(film);
-				
-				
-				
 			}
-			
-			
 			keyResult.close();
 			stmt.close();
-			conn.close();
-				
-			
+			conn.close();	
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-
 		return keyFilm;
 	}
+	
+	public void deleteFilm(int id){
+		try {
+		  Connection conn = DriverManager.getConnection(URL, user, pass);
+		  conn.setAutoCommit(false);
+		  String sql = "DELETE FROM film WHERE id = ?";
+		  PreparedStatement st = conn.prepareStatement(sql); 
+		  st.setInt(1, id);
+		  conn.commit();
+		  st.close();
+		  conn.close();
+			} catch (SQLException e) {
+			  e.printStackTrace();
+			}
+	}//method
 
-}
+}//class
