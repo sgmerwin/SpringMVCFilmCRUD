@@ -29,6 +29,15 @@
 		<option>NC-17</option>
 		</select>
 		
+		Category: <select name="category">
+		<option value="1">English</option>
+		<option value="2">Italian</option>
+		<option value="3">Japanese</option>
+		<option value="4">Mandarin</option>
+		<option value="5">French</option>
+		<option value="6">German</option>
+		</select>
+		
 		<input type="submit" value="Submit" />
 	</form>
 	<h3>Go to home page.</h3>

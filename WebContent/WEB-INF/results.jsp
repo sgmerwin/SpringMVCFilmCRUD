@@ -8,11 +8,17 @@
 <title>Film ID</title>
 </head>
 <body>
+<h2>Film Data</h2>
 
 <c:choose>
 <c:when test = "${empty films}">
 <p>
 The film is not in the database.
+</p>
+</c:when>
+<c:when test = "${films.filmID == 0}">
+<p>
+The film will not be created.
 </p>
 </c:when>
 <c:otherwise>
