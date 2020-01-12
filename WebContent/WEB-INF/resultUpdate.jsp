@@ -42,7 +42,7 @@ The film will be updated.
 <br>
 <h2>Perform an UPDATE request to <em>film database</em></h2>
 	<form action="editFilm.do" method="POST">
-		Film ID: <input type = "number" name="filmID" /><br>
+		Film ID: <input type="number" placeholder="${films.filmID}" value="${films.filmID}" name="filmID" /><br>
 		Film Title: <input type="text" name="filmTitle" /><br>
 		Film Desc: <input type="text" name="filmDesc" /><br>
 		Language Options: <select name="langFilm">

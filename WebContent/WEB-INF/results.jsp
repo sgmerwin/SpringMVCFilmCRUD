@@ -12,7 +12,7 @@
 <c:choose>
 <c:when test = "${empty films}">
 <p>
-no film
+The film is not in the database.
 </p>
 </c:when>
 <c:otherwise>

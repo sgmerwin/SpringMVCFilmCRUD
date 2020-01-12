@@ -8,6 +8,7 @@
 <title>Film</title>
 </head>
 <body>
+<h2>Film Home Page</h2>
 <p>
 <a href="filmID.jsp">Select Film Using Film ID</a>
 </p>
