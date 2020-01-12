@@ -145,17 +145,20 @@ public class Film {
 		return "Film ID = " + filmID + "\n" + "Film Title = " + filmTitle + "\n" + "Film Description = " + filmDesc + "\n" +  "Release Year = "
 				+ releaseFilm + "\n" + "Language = " + language + "\n"  + "Film Rating = " + ratingFilm + "\n" + "Actors = "+ actor + "\n";
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
+		result = prime * result + ((actor == null) ? 0 : actor.hashCode());
 		result = prime * result + ((filmDesc == null) ? 0 : filmDesc.hashCode());
 		result = prime * result + filmID;
 		result = prime * result + ((filmTitle == null) ? 0 : filmTitle.hashCode());
 		result = prime * result + langFilm;
+		result = prime * result + ((language == null) ? 0 : language.hashCode());
 		result = prime * result + lengthFilm;
 		result = prime * result + ((ratingFilm == null) ? 0 : ratingFilm.hashCode());
-		result = prime * result + releaseFilm;
+		result = prime * result + ((releaseFilm == null) ? 0 : releaseFilm.hashCode());
 		result = prime * result + rentalDuration;
 		long temp;
 		temp = Double.doubleToLongBits(rentalRate);
@@ -165,6 +168,7 @@ public class Film {
 		result = prime * result + ((specialFeatures == null) ? 0 : specialFeatures.hashCode());
 		return result;
 	}
+
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -174,6 +178,11 @@ public class Film {
 		if (getClass() != obj.getClass())
 			return false;
 		Film other = (Film) obj;
+		if (actor == null) {
+			if (other.actor != null)
+				return false;
+		} else if (!actor.equals(other.actor))
+			return false;
 		if (filmDesc == null) {
 			if (other.filmDesc != null)
 				return false;
@@ -188,6 +197,11 @@ public class Film {
 			return false;
 		if (langFilm != other.langFilm)
 			return false;
+		if (language == null) {
+			if (other.language != null)
+				return false;
+		} else if (!language.equals(other.language))
+			return false;
 		if (lengthFilm != other.lengthFilm)
 			return false;
 		if (ratingFilm == null) {
@@ -195,7 +209,10 @@ public class Film {
 				return false;
 		} else if (!ratingFilm.equals(other.ratingFilm))
 			return false;
-		if (releaseFilm != other.releaseFilm)
+		if (releaseFilm == null) {
+			if (other.releaseFilm != null)
+				return false;
+		} else if (!releaseFilm.equals(other.releaseFilm))
 			return false;
 		if (rentalDuration != other.rentalDuration)
 			return false;
@@ -210,6 +227,10 @@ public class Film {
 			return false;
 		return true;
 	}
+	
+	
+	
+	
 	
 	
 	
