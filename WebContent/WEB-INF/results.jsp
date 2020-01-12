@@ -22,7 +22,27 @@ The film is not in the database.
 <li>Title: ${films.filmTitle}</li>
 <li>Desc: ${films.filmDesc}</li>
 <li>Release Year: ${films.releaseFilm}</li>
-<li>Language: ${films.langFilm}</li>
+<li>Language Number: ${films.langFilm}</li>
+<c:choose>
+<c:when test = "${films.langFilm == 1}">
+<li>Language: English</li>
+</c:when>
+<c:when test = "${films.langFilm == 2}">
+<li>Language: Italian</li>
+</c:when>
+<c:when test = "${films.langFilm == 3}">
+<li>Language: Japanese</li>
+</c:when>
+<c:when test = "${films.langFilm == 4}">
+<li>Language: Mandarin</li>
+</c:when>
+<c:when test = "${films.langFilm == 5}">
+<li>Language: French</li>
+</c:when>
+<c:when test = "${films.langFilm == 6}">
+<li>Language: German</li>
+</c:when>
+</c:choose>
 <li>Rating: ${films.ratingFilm}</li>
 <li>Category: ${films.category}</li>
 </ul>
