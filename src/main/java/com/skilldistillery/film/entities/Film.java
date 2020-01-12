@@ -9,7 +9,7 @@ public class Film {
 	private int filmID;
 	private String filmTitle;
 	private String filmDesc;
-	private int releaseFilm;
+	private String releaseFilm;
 	private int langFilm;
 	private int rentalDuration;
 	private double rentalRate;
@@ -24,7 +24,7 @@ public class Film {
 		
 	}
 	
-	public Film(int filmID, String filmTitle, String filmDesc, int releaseFilm, int langFilm, String ratingFilm) {
+	public Film(int filmID, String filmTitle, String filmDesc, String releaseFilm, int langFilm, String ratingFilm) {
 		super();
 		this.filmID = filmID;
 		this.filmTitle = filmTitle;
@@ -82,10 +82,10 @@ public class Film {
 	public void setFilmDesc(String filmDesc) {
 		this.filmDesc = filmDesc;
 	}
-	public int getReleaseFilm() {
+	public String getReleaseFilm() {
 		return releaseFilm;
 	}
-	public void setReleaseFilm(int releaseFilm) {
+	public void setReleaseFilm(String releaseFilm) {
 		this.releaseFilm = releaseFilm;
 	}
 	public int getLangFilm() {

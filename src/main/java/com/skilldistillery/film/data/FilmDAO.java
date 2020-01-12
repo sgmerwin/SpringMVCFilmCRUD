@@ -25,7 +25,7 @@ public interface FilmDAO {
 	
 	public void deleteFilm(int id);
 
-	public void updateFilm(Film film);
+	public void updateFilm(int filmID, String filmTitle, String filmDesc, String releaseFilm, int langFilm, String ratingFilm);
 	
 	
 	

@@ -15,12 +15,12 @@
 <c:otherwise>
 
 <ul>
-<li>ID: ${films.filmID}</li>
-<li>Title: ${films.filmTitle}</li>
-<li>Desc: ${films.filmDesc}</li>
-<li>Release Year: ${films.releaseFilm}</li>
-<li>Language: ${films.langFilm}</li>
-<li>Rating: ${films.ratingFilm}</li>
+<li>Current ID: ${films.filmID}</li>
+<li>Current Title: ${films.filmTitle}</li>
+<li>Current Desc: ${films.filmDesc}</li>
+<li>Current Release Year: ${films.releaseFilm}</li>
+<li>Current Language: ${films.langFilm}</li>
+<li>Current Rating: ${films.ratingFilm}</li>
 </ul>
 <ul>
 <c:forEach var = "actor" items="${films.actor}">
@@ -32,12 +32,38 @@
 
 <c:choose>
 <c:when test = "${films.filmID le 1000}">
-The ID is less than 1000. The film will not be updated.
+The ID is less than or equal to 1000. The film will not be updated.
 </c:when>
 <c:when test = "${empty films}">
 The film is empty.
 </c:when>
 <c:otherwise>
 The film will be updated.
+<br>
+<h2>Perform an UPDATE request to <em>film database</em></h2>
+	<form action="editFilm.do" method="POST">
+		Film ID: <input type = "number" name="filmID" /><br>
+		Film Title: <input type="text" name="filmTitle" /><br>
+		Film Desc: <input type="text" name="filmDesc" /><br>
+		Language Options: <select name="lang">
+		<option value="1">English</option>
+		<option value="2">Italian</option>
+		<option value="3">Japanese</option>
+		<option value="4">Mandarin</option>
+		<option value="5">French</option>
+		<option value="6">German</option>
+		</select><br>
+		Film Language Number Input: <input type ="number" name = "langFilm"/><br>
+		Release Year: <input type="text" name="releaseFilm" /><br>
+		Rating Options: <select name="rating">
+		<option>G</option>
+		<option>PG</option>
+		<option>PG-13</option>
+		<option>R</option>
+		<option>NC-17</option>
+		</select><br>
+		Film Rating Input: <input type="text" name="filmRating" /><br>
+ 		<input type="submit" value="Submit" />
+	</form>
 </c:otherwise>
 </c:choose>

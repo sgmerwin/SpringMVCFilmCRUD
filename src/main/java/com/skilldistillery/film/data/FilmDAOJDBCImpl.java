@@ -45,7 +45,7 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 				film.setFilmID(filmResult.getInt("id"));
 				film.setFilmTitle(filmResult.getString("title"));
 				film.setFilmDesc(filmResult.getString("description"));
-				film.setReleaseFilm(filmResult.getInt("release_year"));
+				film.setReleaseFilm(filmResult.getString("release_year"));
 				film.setLangFilm(filmResult.getInt("language_id"));
 				film.setRentalDuration(filmResult.getInt("rental_duration"));
 				film.setRentalRate(filmResult.getDouble("rental_rate"));
@@ -227,7 +227,7 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 				Film film = new Film();
 				
 				film = new Film(keyResult.getInt("id"), keyResult.getString("title"), keyResult.getString("description"),
-						keyResult.getInt("release_year"), keyResult.getInt("language_id"), keyResult.getString("rating"));
+						keyResult.getString("release_year"), keyResult.getInt("language_id"), keyResult.getString("rating"));
 				
 				film.setActor(findActorsByFilmId(film.getFilmID()));
 				film.setLanguage(languageOfFilm(film.getFilmID()));
@@ -259,41 +259,36 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 			  e.printStackTrace();
 			}
 	}//method
-//	public void updateFilm(String title, int id, String filmDesc, int releaseFilm, String ratingFilm, int langFilm)
+	public void updateFilm(int filmID, String filmTitle, String filmDesc, String releaseFilm, int langFilm, String ratingFilm) {
 	
-	public void updateFilm(Film film) {
+	//public void updateFilm(Film film) {
+		if(filmID > 1000) {
 		try {
 		  Connection conn = DriverManager.getConnection(URL, user, pass);
 		  conn.setAutoCommit(false);
-		  String sql = "UPDATE film  SET title =?," 
-				  +"description=?," 
-				  +"release_year =?,"
-				  + "language_id=?" 
-				  + "rental_duration=?,"
-				  + "rental_rate=?,"
-				  + "length =?,"
-				  + "replacement_cost=?,"
-				  + "rating=?"
-				  + "special_features =?,"
-				  + "WHERE id = ?";
-//		  String sql = "UPDATE film SET title, description, release_year, rating = ?,?,?,? WHERE id = ?";
+			/*
+			 * String sql = "UPDATE film  SET title =?," +"description=?,"
+			 * +"release_year =?," + "language_id=?" + "rental_duration=?," +
+			 * "rental_rate=?," + "length =?," + "replacement_cost=?," + "rating=?" +
+			 * "special_features =?," + "WHERE id = ?";
+			 */
+		  String sql = "UPDATE film SET title = ?, description = ?, rating = ?, language_id = ?, release_year = ? WHERE id = ?";
 		  PreparedStatement st = conn.prepareStatement(sql); 
-//		 st.setString(1, film.getFilmTitle());
-			st.setString(2, film.getFilmDesc());
-			st.setInt(3, film.getReleaseFilm());
-			st.setInt(4, film.getLangFilm());
-			st.setInt(5, film.getLengthFilm());
-			st.setString(6, film.getRatingFilm());
-		  
-		  
-		  int uc = st.executeUpdate();
-		  System.err.println(uc + " film record updated");
-		  conn.commit();
-		  st.close();
-		  conn.close();
+     		st.setString(1, filmTitle);
+			st.setString(2, filmDesc);
+			st.setString(3, ratingFilm);
+			st.setInt(4, langFilm);
+			st.setString(5, releaseFilm);		
+			st.setInt(6, filmID);
+			int uc = st.executeUpdate();
+			System.err.println(uc + " film record updated");
+			conn.commit();
+			st.close();
+			conn.close();
 			} catch (SQLException e) {
 			  e.printStackTrace();
 			}
+		}
 	}//method
 
 
