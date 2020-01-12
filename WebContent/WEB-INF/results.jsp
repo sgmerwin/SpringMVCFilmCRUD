@@ -24,7 +24,9 @@ The film is not in the database.
 <li>Release Year: ${films.releaseFilm}</li>
 <li>Language: ${films.langFilm}</li>
 <li>Rating: ${films.ratingFilm}</li>
+<li>Category: ${films.category}</li>
 </ul>
+<h3>Actors</h3>
 <ul>
 <c:forEach var = "actor" items="${films.actor}">
 <li>${actor.actorFirstName} , ${actor.actorLastName}</li>

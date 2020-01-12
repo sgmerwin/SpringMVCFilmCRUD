@@ -27,6 +27,8 @@ public interface FilmDAO {
 
 	public void updateFilm(int filmID, String filmTitle, String filmDesc, String releaseFilm, int langFilm, String ratingFilm);
 	
+	public String findCategory(int filmId);
+	
 	
 	
 	

@@ -55,6 +55,8 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 				film.setSpecialFeatures(filmResult.getString("special_features"));
 				film.setActor(findActorsByFilmId(film.getFilmID()));
 				film.setLanguage(languageOfFilm(filmID));
+				String cat = this.findCategory(filmID);
+				film.setCategory(cat);
 			}
 
 			filmResult.close();
@@ -290,6 +292,27 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 			}
 		}
 	}//method
+	
+	public String findCategory(int filmId) {
+		String cat = "No category available";	
+		  try { Connection conn = DriverManager.getConnection(URL, user, pass); 
+		  String sql =
+		  "SELECT category.name FROM category  JOIN film_category ON category.id = film_category.category_id"
+		  + "JOIN film ON film_category.film_id = film_id WHERE film.id = ?";
+		  PreparedStatement stmt = conn.prepareStatement(sql); 
+		  stmt.setInt(1, filmId);
+		  ResultSet result = stmt.executeQuery(); 
+		  while (result.next()) { 
+			  cat = result.getString("category.name");	  
+		  } 
+		  result.close(); 
+		  stmt.close(); 
+		  conn.close();
+		  } 
+		  catch (SQLException e) { e.printStackTrace(); }
+		 
+		return cat;
+	}
 
 
 
