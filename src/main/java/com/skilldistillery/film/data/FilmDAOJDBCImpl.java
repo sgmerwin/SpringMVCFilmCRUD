@@ -182,8 +182,6 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 			st.setInt(4, film.getLangFilm());
 			st.setInt(5, film.getLengthFilm());
 			st.setString(6, film.getRatingFilm());
-			String cat = this.findCategory(film.getFilmID());
-			film.setCategory(cat);
 			
 			
 			System.out.println("*********" + st); // test line
