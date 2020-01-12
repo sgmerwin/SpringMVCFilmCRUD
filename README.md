@@ -9,6 +9,10 @@
   The film will be available in the database to read, update, and delete.
   The user will also be able to read any film in the database, with standard films being
   from ID's 1-1000. Any film created by the user will have an ID higher than 1000.
+  
+  The follow image provides a basic overview of the project.
+
+<img src="https://github.com/sgmerwin/FilmQueryProject/blob/master/sql_1_5_20.jpg" width="500" height="500">
 
 #### Topics/Technologies Used
 
