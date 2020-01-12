@@ -259,15 +259,33 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 			  e.printStackTrace();
 			}
 	}//method
+//	public void updateFilm(String title, int id, String filmDesc, int releaseFilm, String ratingFilm, int langFilm)
 	
-	public void updateFilm(String title, int id) {
+	public void updateFilm(Film film) {
 		try {
 		  Connection conn = DriverManager.getConnection(URL, user, pass);
 		  conn.setAutoCommit(false);
-		  String sql = "UPDATE film SET title = ? WHERE id = ?";
+		  String sql = "UPDATE film  SET title =?," 
+				  +"description=?," 
+				  +"release_year =?,"
+				  + "language_id=?" 
+				  + "rental_duration=?,"
+				  + "rental_rate=?,"
+				  + "length =?,"
+				  + "replacement_cost=?,"
+				  + "rating=?"
+				  + "special_features =?,"
+				  + "WHERE id = ?";
+//		  String sql = "UPDATE film SET title, description, release_year, rating = ?,?,?,? WHERE id = ?";
 		  PreparedStatement st = conn.prepareStatement(sql); 
-		  st.setInt(2, id);
-		  st.setString(1, title);
+//		 st.setString(1, film.getFilmTitle());
+			st.setString(2, film.getFilmDesc());
+			st.setInt(3, film.getReleaseFilm());
+			st.setInt(4, film.getLangFilm());
+			st.setInt(5, film.getLengthFilm());
+			st.setString(6, film.getRatingFilm());
+		  
+		  
 		  int uc = st.executeUpdate();
 		  System.err.println(uc + " film record updated");
 		  conn.commit();
@@ -277,6 +295,9 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 			  e.printStackTrace();
 			}
 	}//method
+
+
+
 
 
 }//class
