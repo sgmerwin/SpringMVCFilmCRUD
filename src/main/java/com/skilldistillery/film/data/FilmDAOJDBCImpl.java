@@ -185,6 +185,7 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 			String cat = this.findCategory(film.getFilmID());
 			film.setCategory(cat);
 			
+			
 			System.out.println("*********" + st); // test line
 
 			int count = st.executeUpdate();
@@ -307,7 +308,7 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 		  stmt.setInt(1, filmId);
 		  ResultSet result = stmt.executeQuery(); 
 		  while (result.next()) { 
-			  cat = result.getString(1);	  
+			  cat = result.getString("category.name");	  
 		  } 
 		  result.close(); 
 		  stmt.close(); 
