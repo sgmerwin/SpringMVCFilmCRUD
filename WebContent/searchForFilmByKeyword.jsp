@@ -13,6 +13,9 @@
 		<input type="submit" value="Search" />
 	</form>
 	<h3>Go to home page.</h3>
+		<p>
+Films with an id greater than 1000 can be deleted or edited from the home page with the film ID. 
+</p>
 	<form action="getHome.do" method="GET">
 		<input type="submit" value="Home Page" />
 	</form>

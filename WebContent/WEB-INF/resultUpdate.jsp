@@ -57,11 +57,15 @@ The film will be updated.
 		Rating Options: <select name="filmRating">
 		<option value="G">G</option>
 		<option value="PG">PG</option>
-		<option value="PG-13">PG-13</option>
+		<option value="PG13">PG-13</option>
 		<option value="R">R</option>
-		<option value="NC-17">NC-17</option>
+		<option value="NC17">NC-17</option>
 		</select><br>
  		<input type="submit" value="Submit" />
 	</form>
 </c:otherwise>
 </c:choose>
+<h3>Go to home page.</h3>
+	<form action="getHome.do" method="GET">
+		<input type="submit" value="Home Page" />
+	</form>
