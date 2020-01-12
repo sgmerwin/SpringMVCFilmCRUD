@@ -15,7 +15,7 @@
 <c:otherwise>
 
 <ul>
-<%-- <li>ID: ${films.filmID}</li> --%>
+<li>ID: ${films.filmID}</li>
 <li>Title: ${films.filmTitle}</li>
 <li>Desc: ${films.filmDesc}</li>
 <li>Release Year: ${films.releaseFilm}</li>
@@ -32,7 +32,7 @@
 
 <c:choose>
 <c:when test = "${films.filmID le 1000}">
-The ID is less than 1000. The film will not be deleted.
+The ID is less than 1000. The film will not be updated.
 </c:when>
 <c:when test = "${empty films}">
 The film is empty.

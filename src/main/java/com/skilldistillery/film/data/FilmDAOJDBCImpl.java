@@ -269,7 +269,7 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 		  st.setInt(2, id);
 		  st.setString(1, title);
 		  int uc = st.executeUpdate();
-		  System.out.println(uc + " film record updated");
+		  System.err.println(uc + " film record updated");
 		  conn.commit();
 		  st.close();
 		  conn.close();

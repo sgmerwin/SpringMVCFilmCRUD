@@ -64,11 +64,13 @@ public class FilmController {
 	}
 	
 	@RequestMapping(path = "updateFilm.do" , method = RequestMethod.POST)
-	public ModelAndView updateFilm(String string, int id) {
+	public ModelAndView updateFilm(String filmTitle, int filmID) {
 		ModelAndView mv = new ModelAndView();
 		Film film = new Film();
-		
-		film = dao.findFilmById(id);
+		if(filmID > 1000) {
+		dao.updateFilm(filmTitle,filmID);
+		}
+		film = dao.findFilmById(filmID);
 		mv.addObject("films", film);
 		mv.setViewName("WEB-INF/resultUpdate.jsp");
 		
