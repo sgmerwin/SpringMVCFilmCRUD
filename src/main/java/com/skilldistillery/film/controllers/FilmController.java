@@ -82,6 +82,13 @@ public class FilmController {
 		return mv;
 	}
 	
+	@RequestMapping(path = "getHome.do" , method = RequestMethod.GET)
+	public ModelAndView getHome(){
+		ModelAndView mv = new ModelAndView();
+		mv.setViewName("WEB-INF/home.jsp");
+		return mv;	
+	}
+	
 	
 	
 }

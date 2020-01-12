@@ -31,5 +31,9 @@
 		
 		<input type="submit" value="Submit" />
 	</form>
+	<h3>Go to home page.</h3>
+	<form action="getHome.do" method="GET">
+		<input type="submit" value="Home Page" />
+	</form>
 </body>
 </html>

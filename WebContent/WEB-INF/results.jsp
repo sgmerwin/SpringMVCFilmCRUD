@@ -34,6 +34,10 @@ no film
 </c:otherwise>
 </c:choose>
 <br>
+<h3>Go to home page.</h3>
+	<form action="getHome.do" method="GET">
+		<input type="submit" value="Home Page" />
+	</form>
 
 </body>
 </html>

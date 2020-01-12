@@ -12,6 +12,10 @@
 		<input type="text" name="key" /> 
 		<input type="submit" value="Search" />
 	</form>
+	<h3>Go to home page.</h3>
+	<form action="getHome.do" method="GET">
+		<input type="submit" value="Home Page" />
+	</form>
 
 </body>
 </html>

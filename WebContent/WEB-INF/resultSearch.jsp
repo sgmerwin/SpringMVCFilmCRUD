@@ -24,4 +24,8 @@
 </c:forEach>
 </ul>
 </body>
+<h3>Go to home page.</h3>
+	<form action="getHome.do" method="GET">
+		<input type="submit" value="Home Page" />
+	</form>
 </html>
