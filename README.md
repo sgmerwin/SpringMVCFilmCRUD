@@ -3,7 +3,7 @@
 ### Overview
 
 * This is a Film Query Project which utilizes C.R.U.D.
-  C.R.U.D. = Create, Read, Update and, Delete.
+  C.R.U.D. = Create, Read, Update, and Delete.
   This project allows the user to do all the above to the films within the existing database.
   A user will be able to create new films by entering in information in the required blocks.
   The film will be available in the database to read, update, and delete.
