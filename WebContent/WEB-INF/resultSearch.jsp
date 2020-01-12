@@ -10,6 +10,7 @@
 <body>
 <ul>
 <c:forEach var = "film" items="${films}">
+<li> ID: ${film.filmID}</li>
 <li>Title: <b>${film.filmTitle}</b>  Release Year: ${film.releaseFilm} Rating: ${film.ratingFilm}</li>
 <li>Desc: ${film.filmDesc}</li>
 <li>Actors</li>
@@ -25,6 +26,9 @@
 </ul>
 </body>
 <h3>Go to home page.</h3>
+<p>
+Films with an id greater than 1000 can be deleted or edited from the home page with the film ID. 
+</p>
 	<form action="getHome.do" method="GET">
 		<input type="submit" value="Home Page" />
 	</form>
