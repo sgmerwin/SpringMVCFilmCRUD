@@ -12,7 +12,7 @@
   
   The follow image provides a basic overview of the project.
 
-<img src="https://github.com/sgmerwin/FilmQueryProject/blob/master/sql_1_5_20.jpg" width="500" height="500">
+<img src="https://github.com/sgmerwin/SpringMVCFilmCRUD/blob/master/readme_1_11_20.jpg" width="500" height="500">
 
 #### Topics/Technologies Used
 
