@@ -56,7 +56,7 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 				film.setActor(findActorsByFilmId(film.getFilmID()));
 				film.setLanguage(languageOfFilm(filmID));
 				String cat = this.findCategory(filmID);
-				film.setCategory(cat);
+				film.setCategory(cat);		
 			}
 
 			filmResult.close();
@@ -170,7 +170,7 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 
 		try {
 			conn = DriverManager.getConnection(URL, user, pass);
-			String sql = "INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating) "
+			String sql = "INSERT INTO film (title, description, release_year, language_id, rental_duration, rental_rate, length, replacement_cost, rating ) "
 									+ "VALUES (?, ?, ?, ?, 3, 4.99, ?, 19.99, ?)";
 			conn.setAutoCommit(false); // autocommit off
 			PreparedStatement st = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
@@ -182,8 +182,10 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 			st.setInt(4, film.getLangFilm());
 			st.setInt(5, film.getLengthFilm());
 			st.setString(6, film.getRatingFilm());
-			
-			
+
+			String cat = this.findCategory(film.getFilmID());
+			film.setCategory(cat);	
+
 			System.out.println("*********" + st); // test line
 
 			int count = st.executeUpdate();
