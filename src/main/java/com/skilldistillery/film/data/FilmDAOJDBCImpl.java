@@ -295,15 +295,17 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 	
 	public String findCategory(int filmId) {
 		String cat = "No category available";	
-		  try { Connection conn = DriverManager.getConnection(URL, user, pass); 
-		  String sql =
-		  "SELECT category.name FROM category  JOIN film_category ON category.id = film_category.category_id"
-		  + "JOIN film ON film_category.film_id = film_id WHERE film.id = ?";
+		  try { 
+		Connection conn = DriverManager.getConnection(URL, user, pass); 
+		String sql = "Select category.name from category "
+				+ "JOIN film_category ON category.id = film_category.category_id "
+				+ "JOIN film ON film_category.film_id = film.id "
+				+ "WHERE film.id = ?";
 		  PreparedStatement stmt = conn.prepareStatement(sql); 
 		  stmt.setInt(1, filmId);
 		  ResultSet result = stmt.executeQuery(); 
 		  while (result.next()) { 
-			  cat = result.getString("category.name");	  
+			  cat = result.getString(1);	  
 		  } 
 		  result.close(); 
 		  stmt.close(); 
