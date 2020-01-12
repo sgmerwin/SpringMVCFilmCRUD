@@ -28,14 +28,25 @@
 		<option>R</option>
 		<option>NC-17</option>
 		</select>
+		<br>
 		
 		Category: <select name="category">
-		<option value="1">English</option>
-		<option value="2">Italian</option>
-		<option value="3">Japanese</option>
-		<option value="4">Mandarin</option>
-		<option value="5">French</option>
-		<option value="6">German</option>
+		<option value="1">Action</option>
+		<option value="2">Animation</option>
+		<option value="3">Children</option>
+		<option value="4">Classics</option>
+		<option value="5">Comedy</option>
+		<option value="6">Documentary</option>
+		<option value="7">Drama</option>
+		<option value="8">Family</option>
+		<option value="9">Foreign</option>
+		<option value="10">Games</option>
+		<option value="11">Horror</option>
+		<option value="12">Music</option>
+		<option value="13">New</option>
+		<option value="14">Sci-Fi</option>
+		<option value="15">Sports</option>
+		<option value="16">Travel</option>
 		</select>
 		
 		<input type="submit" value="Submit" />
