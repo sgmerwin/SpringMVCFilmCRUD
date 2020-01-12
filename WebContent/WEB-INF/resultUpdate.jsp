@@ -45,29 +45,23 @@ The film will be updated.
 		Film ID: <input type = "number" name="filmID" /><br>
 		Film Title: <input type="text" name="filmTitle" /><br>
 		Film Desc: <input type="text" name="filmDesc" /><br>
-		Language Options: <select name="lang">
-		<option value="1">English</option>
-		<option value="2">Italian</option>
-		<option value="3">Japanese</option>
-		<option value="4">Mandarin</option>
-		<option value="5">French</option>
-		<option value="6">German</option>
+		Language Options: <select name="langFilm">
+		<option value=1>English</option>
+		<option value=2>Italian</option>
+		<option value=3>Japanese</option>
+		<option value=4>Mandarin</option>
+		<option value=5>French</option>
+		<option value=6>German</option>
 		</select><br>
-		Film Language Number Input: <input type ="number" name = "langFilm"/><br>
 		Release Year: <input type="text" name="releaseFilm" /><br>
-		Rating Options: <select name="rating">
-		<option>G</option>
-		<option>PG</option>
-		<option>PG-13</option>
-		<option>R</option>
-		<option>NC-17</option>
+		Rating Options: <select name="filmRating">
+		<option value="G">G</option>
+		<option value="PG">PG</option>
+		<option value="PG-13">PG-13</option>
+		<option value="R">R</option>
+		<option value="NC-17">NC-17</option>
 		</select><br>
-		Film Rating Input: <input type="text" name="filmRating" /><br>
  		<input type="submit" value="Submit" />
 	</form>
 </c:otherwise>
 </c:choose>
-<h3>Go to home page.</h3>
-	<form action="getHome.do" method="GET">
-		<input type="submit" value="Home Page" />
-	</form>
