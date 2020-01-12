@@ -8,6 +8,11 @@
 <title>Film Search Results</title>
 </head>
 <body>
+<c:choose>
+<c:when test="${empty films}">
+The search returned no results. 
+</c:when>
+<c:otherwise>
 <ul>
 <c:forEach var = "film" items="${films}">
 <li> ID: ${film.filmID}</li>
@@ -24,6 +29,8 @@
 </ul>
 </c:forEach>
 </ul>
+</c:otherwise>
+</c:choose>
 </body>
 <h3>Go to home page.</h3>
 <p>
