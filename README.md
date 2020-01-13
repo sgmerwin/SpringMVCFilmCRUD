@@ -1,5 +1,7 @@
 ## Spring MVC Film C.R.U.D. Project
 
+### Week 8 Project for Skill Distillery
+
 ### Overview
 
 * This is a Film Query Project which utilizes the C.R.U.D. concept.<br>
@@ -17,11 +19,14 @@
 #### Topics/Technologies Used
 
 * Java
-* SQL
+* SQL and MySQL
 * C.R.U.D.
 * Spring Tool Suite
 * JDBC
 * JSP's
+* Gradle
+* Apache Tomcat
+* HTML
 
 #### Lessons Learned
 
