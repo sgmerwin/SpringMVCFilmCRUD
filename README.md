@@ -2,7 +2,7 @@
 
 ### Overview
 
-* This is a Film Query Project which utilizes C.R.U.D.<br>
+* This is a Film Query Project which utilizes the C.R.U.D. concept.<br>
   C.R.U.D. = Create, Read, Update, and Delete.
   This project allows the user to do all the above to the films within the existing database.
   A user will be able to create new films by entering in information in the required blocks.
@@ -35,8 +35,8 @@ Based on the @RequestMapping reference, the Java controller file runs a method f
 
 * The Java Controller file is the link between the DAO object's methods to generate SQL statements and displaying the data using the correct JSP file.
 
-* The Javaserver Pages Standard Library (JSTL) provides a collection of JSP tags to provide support for tasks such as iterations and conditions. The JSTL libray was essential to the project and used to make decisions based on the values of a film's attributes and used to iterate over lists of actors.
+* The Java server Pages Standard Library (JSTL) provides a collection of JSP tags to provide support for tasks such as iterations and conditions. The JSTL library was essential to the project and used to make decisions based on the values of a film's attributes and used to iterate over lists of actors.
 
 #### Conclusion
 
-* The Spring Framework proved to be a very intutive design to use. The JSTL library made it easy to handle decisions from the JSP file. For a first run with the Spring Framework, the project went very well.
+* The Spring Framework proved to be a very intuitive design to use. The JSTL library made it easy to handle decisions from the JSP file. For a first run with the Spring Framework, the project went very well.
