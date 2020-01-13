@@ -148,9 +148,6 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 				actor.setActorId(result.getInt("id"));
 				actor.setActorFirstName(result.getString("first_name"));
 				actor.setActorLastName(result.getString("last_name"));
-//				int actorId = result.getInt("id");
-//				String actorFirst = result.getString("first_name");
-//				String actorLast = result.getString("last_name");
 				films.add(actor);
 
 			}
@@ -174,8 +171,6 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 									+ "VALUES (?, ?, ?, ?, 3, 4.99, ?, 19.99, ?)";
 			conn.setAutoCommit(false); // autocommit off
 			PreparedStatement st = conn.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
-//			System.out.println("hello im the film title" + film.getFilmTitle());
-//			System.out.println("hello in film id" + film.getLangFilm());
 			st.setString(1, film.getFilmTitle());
 			st.setString(2, film.getFilmDesc());
 			st.setString(3, film.getReleaseFilm());
@@ -196,15 +191,6 @@ public class FilmDAOJDBCImpl implements FilmDAO {
 				while (keys.next()) {
 					int newFilmId = keys.getInt(1);
 					film.setFilmID(newFilmId);
-					
-//					if (film != null) {
-//				          sql = "INSERT INTO film (film_id) VALUES (?)";
-//				          st = conn.prepareStatement(sql);
-////				          for (Film film1 : ) {
-////				            st.setInt(1, film1.getFilmID());
-////				            count = st.executeUpdate();
-////				          }
-//				        }
 				}
 				conn.commit();
 				st.close();
